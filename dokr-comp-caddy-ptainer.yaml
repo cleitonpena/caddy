@@ -3,7 +3,7 @@ networks:
   caddy:
 services:
   portainer:
-    image: portainer/portainer-ce
+    image: portainer/portainer-ce:latest
     container_name: portainer
     restart: unless-stopped
     security_opt:
@@ -11,11 +11,12 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /home/ubuntu/containers/portainer/portainer-data:/data
+      - /home/blue/containers/portainer/portainer-data:/data
     networks:
       - caddy
     ports:
       - 9000:9000
+      
   caddy:
     image: caddy:latest
     restart: unless-stopped
@@ -26,11 +27,11 @@ services:
     volumes:
       - /home/ubuntu/containers/caddy/Caddyfile:/etc/caddy/Caddyfile
       - /home/ubuntu/containers/caddy/site:/srv
-      - /home/ubuntu/containers/caddy/caddy-data:/data
-      - /home/ubuntu/containers/caddy/caddy-config:/config
+      - /home/ubuntu/containers/caddy/caddy_data:/data
+      - /home/ubuntu/containers/caddy/caddy_config:/config
     networks:
       - caddy
 volumes:
-  caddy-data:
+  caddy_data:
     external: true
-  caddy-config:
+  caddy_config:
