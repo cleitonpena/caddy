@@ -24,7 +24,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /home/ubuntu/containers/caddy:/etc/caddy/Caddyfile
+      - /home/blue/containers/caddy/Caddyfile:/etc/caddy/Caddyfile
       - /home/ubuntu/containers/caddy/site:/srv
       - /home/ubuntu/containers/caddy/caddy-data:/data
       - /home/ubuntu/containers/caddy/caddy-config:/config
